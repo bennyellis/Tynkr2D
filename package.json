@@ -1,0 +1,30 @@
+{
+  "name": "tynkr2d-alpha",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Tynkr2D",
+  "description": "Tynkr2D Alpha desktop motion graphics editor",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis",
+    "dist:win:portable": "electron-builder --win zip --config.win.signAndEditExecutable=false",
+    "dist:dir": "electron-builder --dir"
+  },
+  "devDependencies": {
+    "electron": "^45.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.tynkr2d.alpha",
+    "productName": "Tynkr2D Alpha",
+    "directories": { "output": "dist" },
+    "files": ["index.html", "styles.css", "app.js", "main.cjs", "preload.cjs", "README.md"],
+    "win": { "target": ["nsis"] },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
